@@ -10,8 +10,11 @@ const MID_HEIGHT = Math.floor(
 
 var grid = []; // the stack
 
-var score;
-var playing; //false = game over
+var score = 0;
+var gameTime = 30000;
+
+var gameOver = false;
+var playing= false;
 
 let imgLogo;
 let imgBG;
@@ -30,8 +33,7 @@ function setup() {
 
   /* intialize values */
   initializeGrid();
-  score = 0;
-  playing = true;
+
 
   frameRate(5); // speed of the game
   textAlign(CENTER);
@@ -39,14 +41,13 @@ function setup() {
 }
 
 function draw() {
-  background(215);
-  
+  background(215);  
   image(imgBG, 0, 0, DIMENSIONS.height)
 
   handleGrid();
 
   drawScore();
-
+  drawStartGame();
   drawGameOver();
 }
 
@@ -54,45 +55,55 @@ function draw() {
  * handles user input
  */
 function keyPressed() {
-  if (keyCode != 32) return;
-
-  UserInput();
+  if (key == " "){
+    if(!playing && !gameOver){
+      startGame();
+    }
+    playGame();
+  }
 }
 function mousePressed() {
-  UserInput();
-}
-
-function UserInput() {
-  if (playing) {
-    soundStack.play();
-  }
-
-  var y = grid.length - 1; // height of the stack
-  var cellCount = grid[y].stop(grid[y - 1]); // how many cells are still stackable
-
-  if (cellCount < 1) {
-    // no more stackable cells
-
-    endGame();
-    return;
-  }
-
-  frameRate(5 + score); // increase difficulty
-
-  if (++y > MID_HEIGHT) {
-    // too high to see new stacks
-
-    for (var i = 0; i < y; i++) {
-      // translate stack down
-
-      grid[i].y--;
+  if(!playing && !gameOver){
+      startGame();
     }
-  }
-
-  score = y;
-
-  grid.push(new Row(y > MID_HEIGHT ? MID_HEIGHT : y, cellCount)); // push new Row
+  playGame();
 }
+
+function playGame() {
+  if(playing){
+    if (!gameOver) {
+      soundStack.play();
+    }
+
+    var y = grid.length - 1; // height of the stack
+    var cellCount = grid[y].stop(grid[y - 1]); // how many cells are still stackable
+
+    if (cellCount < 1) {
+      // no more stackable cells
+
+      endGame();
+      return;
+    }
+
+    frameRate(5 + score); // increase difficulty
+
+    if (++y > MID_HEIGHT) {
+      // too high to see new stacks
+
+      for (var i = 0; i < y; i++) {
+        // translate stack down
+
+        grid[i].y--;
+      }
+    }
+
+    score = y;
+
+    grid.push(new Row(y > MID_HEIGHT ? MID_HEIGHT : y, cellCount)); // push new Row
+  }
+}
+
+
 
 /**
  * updates & draws Rows
@@ -117,6 +128,8 @@ function handleGrid() {
   }
 }
 
+
+
 /**
  * draws the score
  */
@@ -126,21 +139,41 @@ function drawScore() {
   text(score * 100, width / 2, 70);
 }
 
+function drawStartGame(){
+  if (!playing && !gameOver) {
+    noStroke();
+    fill("#eb6608");
+    textSize(40);
+    text("tryk for at starte!", width / 2, height / 2);
+  }
+}  
+
+
+/**
+ * start the game
+ */
+function startGame() {  
+  setTimeout(endGame, gameTime)
+  playing = true;
+  gameOver = false;
+}
+
+
 /**
  * ends the game
  */
 function endGame() {
   noLoop();
-
-  playing = false;
+  soundGameOver.play();
+  playing=false;
+  gameOver = true;
 }
 
 /**
  * draws game over message
  */
 function drawGameOver() {
-  if (!playing) {
-    soundGameOver.play();
+  if (gameOver) {
     noStroke();
     fill("#eb6608");
     textSize(90);
