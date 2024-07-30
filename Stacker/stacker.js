@@ -179,8 +179,9 @@ function drawGameOver() {
     textSize(90);
     text("Game Over!", width / 2, height / 3 + 50);
     textSize(50);
-    var FinalScore = score * 100;
-    document.getElementById("FinalScore").innerText = FinalScore;
+    let finalScore = score * 100;
+    document.getElementById("finalScore").innerText = finalScore;
+    document.getElementById("GameOver").innerText = gameOver;
   }
 }
 
