@@ -29,7 +29,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(DIMENSIONS.width, DIMENSIONS.height);
+  createCanvas(windowWidth, windowHeight);
 
   /* intialize values */
   initializeGrid();
@@ -42,7 +42,7 @@ function setup() {
 
 function draw() {
   background(215);  
-  image(imgBG, 0, 0, DIMENSIONS.height)
+  image(imgBG, 0, 0, windowHeight)
 
   handleGrid();
 
@@ -50,6 +50,22 @@ function draw() {
   drawStartGame();
   drawGameOver();
 }
+
+function touchStarted () {
+  if (!fullscreen()) {
+    fullscreen(true);
+  }
+}
+
+/* full screening will change the size of the canvas */
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
+}
+
+document.ontouchmove = function(event) {
+    event.preventDefault();
+};
+
 
 /**
  * handles user input
@@ -109,7 +125,7 @@ function playGame() {
  * updates & draws Rows
  */
 function handleGrid() {
-  var size = width / WIDTH; // size of each cell
+  var size = windowWidth / WIDTH; // size of each cell
 
   fill("#eb6608");
   stroke(255);
@@ -136,7 +152,7 @@ function handleGrid() {
 function drawScore() {
   noStroke();
   fill("#eb6608");
-  text(score * 100, width / 2, 70);
+  text(score * 100, windowWidth / 2, 70);
 }
 
 function drawStartGame(){
@@ -144,7 +160,7 @@ function drawStartGame(){
     noStroke();
     fill("#eb6608");
     textSize(40);
-    text("tryk for at starte!", width / 2, height / 2);
+    text("tryk for at starte!", windowWidth / 2, windowHeight / 2);
   }
 }  
 
@@ -176,12 +192,12 @@ function drawGameOver() {
   if (gameOver) {
     noStroke();
     fill("#eb6608");
-    textSize(90);
-    text("Game Over!", width / 2, height / 3 + 50);
+    textSize(40);
+    text("Game Over!", windowWidth / 2, windowHeight / 3 + 50);
     textSize(50);
     let finalScore = score * 100;
     document.getElementById("finalScore").innerText = finalScore;
-    document.getElementById("GameOver").innerText = gameOver;
+    document.getElementById("GameOver").innerText = GameOver;
   }
 }
 
