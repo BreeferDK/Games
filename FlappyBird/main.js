@@ -1,4 +1,4 @@
-var scoreMultiplier = 1000;
+var scoreMultiplier = 10;
 var score = 0;
 var gameTime = 30000;
 
