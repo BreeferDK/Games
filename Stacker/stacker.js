@@ -16,6 +16,8 @@ var gameTime = 30000;
 var gameOver = false;
 var playing= false;
 
+var towerHeight = 0;
+
 let imgLogo;
 let imgBG;
 let SoundStack;
@@ -101,7 +103,7 @@ function playGame() {
       return;
     }
 
-    frameRate(5 + score); // increase difficulty
+    frameRate(5 + towerHeight); // increase difficulty
 
     if (++y > MID_HEIGHT) {
       // too high to see new stacks
@@ -113,7 +115,8 @@ function playGame() {
       }
     }
 
-    score = y;
+    towerHeight = y;
+    score = towerHeight*100
 
     grid.push(new Row(y > MID_HEIGHT ? MID_HEIGHT : y, cellCount)); // push new Row
   }
@@ -152,7 +155,7 @@ function handleGrid() {
 function drawScore() {
   noStroke();
   fill("#eb6608");
-  text(score * 100, windowWidth / 2, 70);
+  text(score, windowWidth / 2, 70);
 }
 
 function drawStartGame(){
@@ -195,9 +198,8 @@ function drawGameOver() {
     textSize(40);
     text("Game Over!", windowWidth / 2, windowHeight / 3 + 50);
     textSize(50);
-    let finalScore = score * 100;
-    document.getElementById("finalScore").innerText = finalScore;
-    document.getElementById("GameOver").innerText = GameOver;
+    // Send score to parent React component
+    window.parent.postMessage({ score }, "*");
   }
 }
 
