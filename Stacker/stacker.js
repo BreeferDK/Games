@@ -11,6 +11,7 @@ const MID_HEIGHT = Math.floor(
 var grid = []; // the stack
 
 var score = 0;
+var scoreMultiplier= 1;
 var gameTime = 30000;
 
 var gameOver = false;
@@ -116,7 +117,7 @@ function playGame() {
     }
 
     towerHeight = y;
-    score = towerHeight*100
+    score = towerHeight*scoreMultiplier;
 
     grid.push(new Row(y > MID_HEIGHT ? MID_HEIGHT : y, cellCount)); // push new Row
   }
