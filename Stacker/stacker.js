@@ -198,7 +198,7 @@ function endGame() {
  */
 function drawGameOver() {
   if (gameOver) {
-    noStroke();
+    stroke(50);
     fill("#eb6608");
     textSize(40);
     text("Game Over!", windowWidth / 2, windowHeight / 3 + 50);
