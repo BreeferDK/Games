@@ -14,7 +14,7 @@ var bird;
 var pipes=[]
 
 function preload() {
-  imgBird = loadImage("res/img/flappybird.png");
+  imgBird = loadImage("res/img/Flappy2.png");
   imgBG = loadImage("res/img/flappybirdbg.png")
   soundFlap = loadSound("res/snd/wing-flap.mp3");
   soundGameOver = loadSound("res/snd/game-over.mp3");
@@ -51,6 +51,7 @@ function draw() {
     drawGameOver();
   }
 }
+
 
 /* full screening will change the size of the canvas */
 function windowResized() {
@@ -120,7 +121,7 @@ function drawGame(){
   bird.update();
   bird.show();
   
-  if(frameCount %90 ==0){
+  if(frameCount %100 ==0){
     pipes.push(new pipe())
   }
   

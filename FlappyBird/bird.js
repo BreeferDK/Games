@@ -7,7 +7,7 @@ function bird(){
   this.velocity = 0;
   
   this.show = function() {
-    image(imgBird, this.x, this.y, 46, 46);
+    image(imgBird, this.x, this.y, 60, 48);
   }
   
   this.up=function(){
