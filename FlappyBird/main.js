@@ -79,10 +79,7 @@ function touchStarted() {
     if (!fullscreen()) {
       fullscreen(true);
     }
-    if (!playing && !gameOver){
-      startGame();
-    }
-  playGame();
+    handleControls();
 }
 
 function handleControls(){
