@@ -52,12 +52,6 @@ function draw() {
   }
 }
 
-function touchStarted () {
-  if (!fullscreen()) {
-    fullscreen(true);
-  }
-}
-
 /* full screening will change the size of the canvas */
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
@@ -79,6 +73,16 @@ function keyPressed() {
 function mousePressed() {
   
   handleControls();
+}
+
+function touchStarted() {
+    if (!fullscreen()) {
+      fullscreen(true);
+    }
+    if (!playing && !gameOver){
+      startGame();
+    }
+  playGame();
 }
 
 function handleControls(){
