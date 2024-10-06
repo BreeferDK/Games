@@ -1,8 +1,5 @@
-* {
-  margin: 0;
-  padding: 0;
+body {
+  font-family:'Robotto';
+  text-align: center;
 }
 
-canvas {
-  display: block;
-}

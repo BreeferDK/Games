@@ -62,7 +62,7 @@ Row.prototype.draw = function(size) {
 
     if (this.cells[x]) // if the cell is occupied
       //rect(x * size, height - ((this.y + 1) * size), size, size);
-      image(imgLogo, x * size, height - ((this.y + 1) * size), size, size)
+      image(imgLogo, x * size, DIMENSIONS.height - ((this.y + 1) * size), size, size)
   }
 };
 
