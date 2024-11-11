@@ -41,7 +41,7 @@ function drawIntro() {
   fill("#eb6608");
   text('SPEED CLICKER', width/2, height/3);
   
-  textSize(min(width, height) * 0.03);
+  textSize(min(width, height) * 0.04);
   text('Klik på maskotten så mange gange du kan!\ntryk for at starte', width/2, height/2);
 }
 
@@ -71,10 +71,10 @@ function drawGameplay() {
   // Draw timer at bottom
   textSize(min(width, height) * 0.05);
   fill("#eb6608");
-  text(timeLeft, width/2, height * 0.9);
+  text('Tid tilbage: ' + timeLeft, width/2, height * 0.9);
   
   // Draw score
-  text(score, width/2, height/6);
+  text('Score: ' + score, width/2, height/6);
   
   // Draw Breefer
   imageMode(CENTER);
