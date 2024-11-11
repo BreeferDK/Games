@@ -82,8 +82,16 @@ function drawGameplay() {
   
 }
 
+function touchStarted() {
+  handleInteraction();
+  return false;
+}
 
 function mousePressed() {
+  handleInteraction();
+}
+
+function handleInteraction() {
   if (gameState === 'INTRO') {
     gameState = 'GAMEPLAY';
     score = 0;
@@ -104,8 +112,3 @@ function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
   circleSize = min(width, height) * 0.2;
 }
-
-function touchStarted() {
-  // Prevent default touch behavior on mobile
-  return false;
-} 
