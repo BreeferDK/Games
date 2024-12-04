@@ -1,0 +1,141 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: #f5f5f5;
+    color: #eb6608;
+}
+
+#game-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.intro-screen, .gameover-screen {
+    text-align: center;
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.intro-screen h1, .gameover-screen h1, 
+.intro-screen p, .gameover-screen p {
+    color: #eb6608;
+}
+
+.start-btn, .restart-btn {
+    background: #eb6608;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background 0.3s;
+}
+
+.start-btn:hover, .restart-btn:hover {
+    background: #d55a07;
+}
+
+.game-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.score-display {
+    padding: 10px;
+    font-size: 1.5rem;
+    color: #eb6608;
+    font-weight: bold;
+    text-align: center;
+}
+
+.score-breakdown {
+    font-size: 1.2rem;
+    color: #eb6608;
+    margin: 10px 0;
+    padding: 10px;
+    background: rgba(235, 102, 8, 0.1);
+    border-radius: 5px;
+}
+
+#score {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.timer-display {
+    padding: 10px;
+    font-size: 1.5rem;
+    color: #eb6608;
+    font-weight: bold;
+}
+
+#board {
+    width: 300px;
+    height: 300px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    background: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+#timer.low-time {
+    animation: pulse 1s infinite;
+    color: red;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+#pieces {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+}
+
+#pieces canvas {
+    pointer-events: auto;
+    position: absolute;
+    width: 98px;
+    height: 98px;
+    cursor: grab;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+#board canvas {
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+canvas {
+    border: 1px solid #ddd;
+    background: white;
+}
