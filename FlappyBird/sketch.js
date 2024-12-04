@@ -8,12 +8,8 @@ let lastTime = 0;
 function preload() {
     imgBird = loadImage("res/img/Flappy2.png");
     imgBG = loadImage("res/img/flappybirdbg.png");
-    soundFlap = loadSound("res/snd/wing-flap.mp3", () => {
-      soundFlap.setVolume(0.5);
-    });
-    soundGameOver = loadSound("res/snd/game-over.mp3", () => {
-      soundGameOver.setVolume(0.5);
-    });
+    soundFlap = loadSound("res/snd/wing-flap.mp3");
+    soundGameOver = loadSound("res/snd/game-over.mp3");
 }
 
 function setup() {
@@ -21,9 +17,6 @@ function setup() {
   bird = new Bird();
   pipes.push(new Pipe());
   
-  if (getAudioContext().state !== 'running') {
-    getAudioContext().resume();
-  }
 }
 
 function draw() {

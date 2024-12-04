@@ -9,7 +9,7 @@ class Pipe {
   }
   
   show() {
-    fill(0, 255, 0);
+    fill('#eb6608');
     rect(this.x, 0, this.w, this.top);
     rect(this.x, this.bottom, this.w, height);
   }
