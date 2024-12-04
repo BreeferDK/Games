@@ -55,7 +55,7 @@ function drawIntro() {
   text('STACKER', width/2, height/3);
   
   textSize(min(width, height) * 0.03);
-  text('Stak blokkene så hæjt du kan!\nTryk for at starte', width/2, height/2);
+  text('Stak blokkene så højt du kan!\nTryk for at starte', width/2, height/2);
 }
 
 function drawGameplay() {
