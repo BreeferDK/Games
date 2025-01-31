@@ -116,7 +116,7 @@ function gameOver(won) {
             <button onclick="showIntroState()" class="restart-btn">Play Again</button>
         </div>
     `;
-    window.parent.postMessage({ score }, "*");
+    window.parent.postMessage({ finalScore }, "*");
 }
 
 function initializeGame() {
