@@ -113,10 +113,10 @@ function gameOver(won) {
             </p>
             <p>Moves: ${turns}</p>
             <p>Time: ${30 - timeLeft} seconds</p>
-            <button onclick="showIntroState()" class="restart-btn">Play Again</button>
         </div>
     `;
-    window.parent.postMessage({ finalScore }, "*");
+    let score = finalScore
+    window.parent.postMessage({ score }, "*");
 }
 
 function initializeGame() {
