@@ -115,7 +115,7 @@ function gameOver(won) {
             <p>Time: ${30 - timeLeft} seconds</p>
         </div>
     `;
-    let score = finalScore
+    let score = finalScore;
     window.parent.postMessage({ score }, "*");
 }
 
