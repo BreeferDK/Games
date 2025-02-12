@@ -140,6 +140,7 @@ function touchStarted() {
     gameState = 'GAMEPLAY';
     resetGame();
     bird.flap();
+    bird.flap();
   } else if (gameState === 'GAMEPLAY') {
     bird.flap();
   }
