@@ -139,6 +139,7 @@ function touchStarted() {
   if (gameState === 'INTRO') {
     gameState = 'GAMEPLAY';
     resetGame();
+    bird.flap();
   } else if (gameState === 'GAMEPLAY') {
     bird.flap();
   }

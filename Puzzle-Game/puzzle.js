@@ -116,6 +116,7 @@ function gameOver(won) {
         </div>
     `;
     let score = finalScore;
+    // Send score to parent React component
     window.parent.postMessage({ score }, "*");
 }
 
