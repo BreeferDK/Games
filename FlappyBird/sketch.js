@@ -129,6 +129,7 @@ function resetGame() {
   score = 0;
   timer = 30;
   lastTime = millis();
+  bird.flap();
 }
 
 function windowResized() {
@@ -139,8 +140,6 @@ function touchStarted() {
   if (gameState === 'INTRO') {
     gameState = 'GAMEPLAY';
     resetGame();
-    bird.flap();
-    bird.flap();
   } else if (gameState === 'GAMEPLAY') {
     bird.flap();
   }
