@@ -35,9 +35,11 @@ window.onload = function() {
     mainImage.onload = function() {
         showIntroState();
     };
+    //imgBG = loadImage('images/Background.jpg');
 }
 
 function showIntroState() {
+    
     currentState = GAME_STATES.INTRO;
     const gameContainer = document.getElementById('game-container');
     gameContainer.innerHTML = `
@@ -72,6 +74,7 @@ function startGame() {
     `;
 
     initializeGame();
+
     
     timerInterval = setInterval(() => {
         timeLeft--;
