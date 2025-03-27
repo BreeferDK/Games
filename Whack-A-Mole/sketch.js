@@ -64,13 +64,11 @@ function draw() {
 }
 
 function drawIntro() {
+  textAlign(CENTER);
   fill('#eb6608');
-  textSize(min(width, height) / 15);
-  text('WHACK A MOLE', width/2, height/3);
   
-  textSize(min(width, height) / 30);
-  text('Slå så mange i hovedet som du kan nå!\nDu har 30 sec.\n\nKlik for at starte', 
-       width/2, height/2);
+  textSize(min(width, height) * 0.05);
+  text('Tryk start og se hvor tit\ndu kan slå figuren i hovedet\npå et halv minut', width/2, height/2);
 }
 
 function drawGameplay() {

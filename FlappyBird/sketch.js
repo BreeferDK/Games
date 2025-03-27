@@ -7,9 +7,10 @@ let lastTime = 0;
 
 function preload() {
     imgBird = loadImage("res/img/Flappy2.png");
-    imgBG = loadImage("res/img/flappybirdbg.png");
+    //imgBG = loadImage("res/img/flappybirdbg.png");
     soundFlap = loadSound("res/snd/wing-flap.mp3");
     soundGameOver = loadSound("res/snd/game-over.mp3");
+    imgBG = loadImage("res/img/Background.jpg")
 }
 
 function setup() {
@@ -20,7 +21,10 @@ function setup() {
 }
 
 function draw() {
-  background(135, 206, 235);
+  //background(135, 206, 235);
+  background(50);
+  imageMode(CORNER);
+  image(imgBG, 0, 0, width, height, 0, 0, imgBG.height, COVER);
   
   switch(gameState) {
     case 'INTRO':
@@ -37,15 +41,9 @@ function draw() {
 
 function showIntro() {
   textAlign(CENTER);
-  textSize(windowWidth * 0.08);
-  fill('#eb6608');
-  text('FLAPPY BIRD', width/2, height/3);
-  
-  textSize(windowWidth * 0.03);
-  text('Tryk for at flyve\nPrøv at overleve i 30 sec!', width/2, height/2);
-  
-  textSize(windowWidth * 0.02);
-  text('Tryk for at starte', width/2, height * 0.7);
+  fill('#eb6608');    
+  textSize(min(width, height) * 0.05);
+  text('Tryk start og se om du\nkan styre fuglen i luften\ni et halv minut', width/2, height/2);
 }
 
 function updateGame() {
@@ -64,8 +62,10 @@ function updateGame() {
   bird.update();
   bird.show();
   
-  if (frameCount % 90 == 0) {
-    pipes.push(new Pipe());
+  if (frameCount % 90 == 0){
+    if (timer <= 29){
+      pipes.push(new Pipe());
+    }
   }
   
   for (let i = pipes.length - 1; i >= 0; i--) {

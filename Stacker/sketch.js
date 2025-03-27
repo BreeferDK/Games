@@ -21,6 +21,7 @@ function preload() {
     imgLogo = loadImage('res/img/logo.png');
     soundStack = loadSound('res/snd/drop.mp3');
     soundGameOver = loadSound('res/snd/game-over.mp3');
+    imgBG = loadImage("res/img/Background.jpg")
 }
 
 function setup() {
@@ -34,7 +35,9 @@ function setup() {
 }
 
 function draw() {
-  background(191);
+  background(50);
+  imageMode(CORNER);
+  image(imgBG, 0, 0, width, height, 0, 0, imgBG.height, COVER);
   
   switch(gameState) {
     case 'INTRO':
@@ -50,12 +53,11 @@ function draw() {
 }
 
 function drawIntro() {
+  textAlign(CENTER);
   fill('#eb6608');
-  textSize(min(width, height) * 0.1);
-  text('STACKER', width/2, height/3);
   
-  textSize(min(width, height) * 0.03);
-  text('Stak blokkene så højt du kan!\nTryk for at starte', width/2, height/2);
+  textSize(min(width, height) * 0.05);
+  text('Tryk start og se hvor højt\net tårn du kan bygge\npå et halvt minut', width/2, height/2);
 }
 
 function drawGameplay() {

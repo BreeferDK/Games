@@ -42,9 +42,9 @@ function showIntroState() {
     const gameContainer = document.getElementById('game-container');
     gameContainer.innerHTML = `
         <div class="intro-screen">
-            <h1>Puzzle Challenge</h1>
-            <p>Arrange the pieces to complete the image before time runs out!</p>
-            <p>You have 30 seconds. Good luck!</p>
+            <p>Tryk start og se om du</p>
+            <p>kan samle puslespillet</p>
+            <p>på et halv minut<p>
             <button onclick="startGame()" class="start-btn">Start Game</button>
         </div>
     `;
@@ -61,12 +61,12 @@ function startGame() {
         <div class="game-layout">
             <div class="score-display">
                 Score: <span id="score">${currentScore}</span><br>
-                Turns: <span id="turns">0</span>
+                Træk: <span id="turns">0</span>
             </div>
             <div id="board"></div>
             <div id="pieces"></div>
             <div class="timer-display">
-                Time: <span id="timer">30</span>
+                Tid: <span id="timer">30</span>
             </div>
         </div>
     `;
@@ -103,16 +103,16 @@ function gameOver(won) {
     const gameContainer = document.getElementById('game-container');
     gameContainer.innerHTML = `
         <div class="gameover-screen">
-            <h1>${won ? 'Congratulations!' : 'Game Over!'}</h1>
-            <p>${won ? 'You solved the puzzle!' : 'Time\'s up!'}</p>
+            <h1>${won ? 'Tillykke!' : 'Game Over!'}</h1>
+            <p>${won ? 'Du samlede puslespillet!' : 'Tiden er gået!'}</p>
             <p>Final Score: ${finalScore}</p>
             <p class="score-breakdown">
                 Base Score: ${currentScore}<br>
                 ${won ? `Time Bonus: ${timeBonus}<br>` : ''}
                 ${won ? `Completion Bonus: ${COMPLETION_BONUS}` : ''}
             </p>
-            <p>Moves: ${turns}</p>
-            <p>Time: ${30 - timeLeft} seconds</p>
+            <p>Træk: ${turns}</p>
+            <p>Tiid: ${30 - timeLeft} seconds</p>
         </div>
     `;
     let score = finalScore;

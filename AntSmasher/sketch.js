@@ -13,6 +13,7 @@ function preload() {
     soundClick = loadSound("res/snd/click.mp3", () => {
         soundClick.setVolume(0.5);
       });
+    imgBG = loadImage("res/img/Background.jpg")
 }
 
 function setup() {
@@ -33,7 +34,9 @@ function setup() {
 }
 
 function draw() {
-  background(255);
+  background(50);
+  imageMode(CORNER);
+  image(imgBG, 0, 0, width, height, 0, 0, imgBG.height, COVER);
   
   switch (gameState) {
     case 'intro':
@@ -49,12 +52,11 @@ function draw() {
 }
 
 function drawIntro() {
+  textAlign(CENTER);
   fill('#eb6608');
-  textSize(width * 0.08);
-  text('Ant Smasher', width/2, height/3);
-  textSize(width * 0.03);
-  text('Klik på dyrene!\nDu har 30 sec!', width/2, height/2);
-  text('Tryk for at starte', width/2, height * 0.7);
+  
+  textSize(min(width, height) * 0.05);
+  text('Tryk start og se hvor\nmange insekter du kan\nsmadre på et halv minut\n', width/2, height/2);
 }
 
 function drawGameplay() {

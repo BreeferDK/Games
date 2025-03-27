@@ -37,12 +37,11 @@ function draw() {
 }
 
 function drawIntro() {
-  textSize(min(width, height) * 0.08);
-  fill("#eb6608");
-  text('SPEED CLICKER', width/2, height/3);
+  textAlign(CENTER);
+  fill('#eb6608');
   
-  textSize(min(width, height) * 0.04);
-  text('Klik på maskotten så mange gange du kan!\ntryk for at starte', width/2, height/2);
+  textSize(min(width, height) * 0.05);
+  text('Tryk start og se hvor mange\ngange du rammer figuren\npå et halv minut', width/2, height/2);
 }
 
 function drawGameover() {
