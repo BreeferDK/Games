@@ -2,9 +2,9 @@ class Bird {
   constructor() {
     this.y = height/2;
     this.x = width/4;
-    this.gravity = 0.6;
+    this.gravity = 0.5;
     this.velocity = 0;
-    this.lift = -15;
+    this.lift = -10;
     this.size = windowWidth * 0.04;
   }
   
