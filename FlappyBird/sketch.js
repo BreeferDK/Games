@@ -25,6 +25,7 @@ function draw() {
   background(50);
   imageMode(CORNER);
   image(imgBG, 0, 0, width, height, 0, 0, imgBG.height, COVER);
+  frameRate(50);
   
   switch(gameState) {
     case 'INTRO':
@@ -43,7 +44,7 @@ function showIntro() {
   textAlign(CENTER);
   fill('#eb6608');    
   textSize(min(width, height) * 0.05);
-  text('Tryk start og se om du\nkan styre fuglen i luften\ni et halv minut', width/2, height/2);
+  text('Tryk start og se om du\nkan styre breeferen i luften\ni et halv minut', width/2, height/2);
 }
 
 function updateGame() {
