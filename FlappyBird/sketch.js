@@ -44,7 +44,7 @@ function showIntro() {
   textAlign(CENTER);
   fill('#eb6608');    
   textSize(min(width, height) * 0.05);
-  text('på skærmen og se om du\nkan styre breeferen i luften\ni et halv minut', width/2, height/2);
+  text('Tryk på skærmen og se om du\nkan styre breeferen i luften\ni et halv minut', width/2, height/2);
 }
 
 function updateGame() {
