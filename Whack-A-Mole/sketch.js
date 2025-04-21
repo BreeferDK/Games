@@ -68,7 +68,7 @@ function drawIntro() {
   fill('#eb6608');
   
   textSize(min(width, height) * 0.05);
-  text('Tryk start og se hvor tit\ndu kan slå figuren i hovedet\npå et halv minut', width/2, height/2);
+  text('Tryk på skærmen og se hvor tit\ndu kan slå figuren i hovedet\npå et halv minut', width/2, height/2);
 }
 
 function drawGameplay() {

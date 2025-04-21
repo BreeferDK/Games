@@ -37,6 +37,7 @@ function draw() {
   background(50);
   imageMode(CORNER);
   image(imgBG, 0, 0, width, height, 0, 0, imgBG.height, COVER);
+  frameRate(40);
   
   switch (gameState) {
     case 'intro':
@@ -56,7 +57,7 @@ function drawIntro() {
   fill('#eb6608');
   
   textSize(min(width, height) * 0.05);
-  text('Tryk start og se hvor\nmange insekter du kan\nsmadre på et halv minut\n', width/2, height/2);
+  text('Tryk på skærmen og se hvor\nmange insekter du kan\nsmadre på et halv minut\n', width/2, height/2);
 }
 
 function drawGameplay() {

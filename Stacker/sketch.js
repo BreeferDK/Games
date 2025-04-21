@@ -29,7 +29,7 @@ function setup() {
    /* initialize values */
    initializeGrid();
 
-   frameRate(5); // speed of the game
+   frameRate(3); // speed of the game
    textAlign(CENTER);
    textSize(50);
 }
@@ -57,7 +57,7 @@ function drawIntro() {
   fill('#eb6608');
   
   textSize(min(width, height) * 0.05);
-  text('Tryk start og se hvor højt\net tårn du kan bygge\npå et halvt minut', width/2, height/2);
+  text('Tryk på skærmen og se hvor højt\net tårn du kan bygge\npå et halvt minut', width/2, height/2);
 }
 
 function drawGameplay() {

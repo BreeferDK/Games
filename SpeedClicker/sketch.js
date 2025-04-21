@@ -41,7 +41,7 @@ function drawIntro() {
   fill('#eb6608');
   
   textSize(min(width, height) * 0.05);
-  text('Tryk start og se hvor mange\ngange du rammer figuren\npå et halv minut', width/2, height/2);
+  text('Tryk på skærmen og se hvor mange\ngange du rammer figuren\npå et halv minut', width/2, height/2);
 }
 
 function drawGameover() {
